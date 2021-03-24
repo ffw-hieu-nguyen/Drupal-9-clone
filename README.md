@@ -3,7 +3,7 @@
 Start docker
 
 ```
-docker-compose up
+docker-compose up -d
 ```
 
 Login php container with root
