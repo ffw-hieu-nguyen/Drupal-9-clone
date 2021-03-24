@@ -1,13 +1,4 @@
 # Drupal-9-clone
-# Composer template for Drupal projects
-
-# Installation:
-
-## Docker
-
-## Change `docker-compose.win.yml` to `docker-compose.yml`
-## In `docker-compose.yml` uncomment mariadb service -> mariadb-init and copy init .sql file(s)
-## Change `.env.sample` to `.env`
 
 Start docker
 
