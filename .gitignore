@@ -25,9 +25,6 @@
 # Ignore .env files as they are personal
 /.env
 
-# Ignore docker-compose.yml as they are personal
-/docker-compose.yml
-
 # Ignore theme tmp
 /app/docroot/themes/custom/vov/node_modules/
 /app/docroot/themes/custom/vov/npm-debug.log

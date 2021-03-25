@@ -1,0 +1,57 @@
+version: "3"
+
+services:
+  mariadb:
+    image: 'wodby/mariadb:10.5-3.12.1'
+    environment:
+      MYSQL_ROOT_PASSWORD: '123456'
+      MYSQL_DATABASE: 'test'
+      MYSQL_USER: 'test'
+      MYSQL_PASSWORD: 'test'
+    ports:
+      - '3306:3306'
+    volumes:
+      - './mariadb:/var/lib/mysql'
+  php:
+    image: 'wodby/drupal-php:7.4-4.24.1'
+    volumes:
+      - './app:/var/www/html'
+      - './files:/mnt/files'
+    depends_on:
+      - mariadb
+  nginx:
+    image: 'wodby/nginx:1.19-5.13.2'
+    environment:
+      NGINX_VHOST_PRESET: drupal9
+      NGINX_BACKEND_HOST: php
+      NGINX_SERVER_ROOT: /var/www/html/docroot
+    ports:
+      - '80:80'
+    volumes:
+      - './app:/var/www/html'
+      - './files:/mnt/files'
+    depends_on:
+      - php
+      - mariadb
+  redis:
+    image: 'wodby/redis:6-3.7.1'
+    environment:
+      REDIS_PASSWORD: '123456'
+  solr:
+    image: 'wodby/solr:8-4.10.0'
+    environment:
+      SOLR_DEFAULT_CONFIG_SET: search_api_solr_4.1.6
+    ports:
+      - '8983:8983'
+    volumes:
+      - './solr:/opt/solr/server/solr'
+  pma:
+    image: 'phpmyadmin/phpmyadmin:4.7.0-2'
+    environment:
+      PMA_HOST: 'mariadb'
+      PHP_UPLOAD_MAX_FILESIZE: 1G
+      PHP_MAX_INPUT_VARS: 1G
+    ports:
+      - '8080:80'
+    depends_on:
+      - mariadb
