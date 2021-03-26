@@ -1,0 +1,8 @@
+uuid: 31b0fbd0-8acb-4f50-a3b0-315807b5d588
+langcode: en
+status: true
+dependencies: {  }
+name: category
+vid: category
+description: 'Chuyên mục'
+weight: 0

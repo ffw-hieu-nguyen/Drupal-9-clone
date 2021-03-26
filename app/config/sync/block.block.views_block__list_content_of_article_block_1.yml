@@ -1,0 +1,38 @@
+uuid: 60be1ba7-be02-4374-9095-faeb30499ca7
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.list_content_of_article
+  module:
+    - ctools
+    - system
+    - views
+  theme:
+    - bartik
+id: views_block__list_content_of_article_block_1
+theme: bartik
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:list_content_of_article-block_1'
+settings:
+  id: 'views_block:list_content_of_article-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      article: article
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  request_path:
+    id: request_path
+    pages: '/node/*'
+    negate: false

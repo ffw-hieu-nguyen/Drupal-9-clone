@@ -1,0 +1,21 @@
+uuid: f0cf6bca-2c8d-4ef3-a9f8-135382a727ef
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_workflow
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  lightning_workflow:
+    workflow: editorial
+name: Article
+type: article
+description: 'Type article'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true
