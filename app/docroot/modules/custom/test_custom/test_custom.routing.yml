@@ -13,3 +13,19 @@ test_custom.myconfig_form:
     _title: 'Config'
   requirements:
     _permission: 'access test custom config'
+
+test_custom.handle_article:
+  path: '/publish_control'
+  defaults:
+    _controller: '\Drupal\test_custom\Controller\RedirectController::redirectForm'
+    _title: 'redirect form'
+  requirements:
+    _permission: 'access test custom'
+
+test_custom.form_handle:
+  path: '/publish_control/handle_form'
+  defaults:
+    _form: '\Drupal\test_custom\Form\HandleForm'
+    _title: 'form'
+  requirements:
+    _permission: 'access test custom'
