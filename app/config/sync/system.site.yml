@@ -1,0 +1,14 @@
+uuid: 41e08cde-72f0-4c2c-a204-cfdf751c8094
+name: clone
+mail: hieunt2693@gmail.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI

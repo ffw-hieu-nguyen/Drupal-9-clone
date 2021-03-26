@@ -6,6 +6,7 @@
     "require": {
         "acquia/lightning": "~5.1.0",
         "cweagans/composer-patches": "^1.6.0",
+        "drupal/console": "~1.0",
         "drupal/core-composer-scaffold": "*",
         "oomphinc/composer-installers-extender": "^1.1 || ^2"
     },

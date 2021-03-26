@@ -10,7 +10,6 @@
 /files
 
 # Ignore sensitive information
-/app/docroot/sites/*/settings.php
 /app/docroot/sites/*/settings.local.php
 
 # Ignore Drupal's file directory
@@ -26,8 +25,8 @@
 /.env
 
 # Ignore theme tmp
-/app/docroot/themes/custom/vov/node_modules/
-/app/docroot/themes/custom/vov/npm-debug.log
+/app/docroot/themes/custom/clone/node_modules/
+/app/docroot/themes/custom/clone/npm-debug.log
 
 # Ignore compiled files.
 /app/docroot/themes/custom/clone/dist
