@@ -1,0 +1,9 @@
+accesst test custom:
+  title: 'page test'
+  description: 'Allow test of page'
+  restrict access: true
+
+accesst test custom config:
+  title: 'Change config of form'
+  description: 'Allow change config of form'
+  restrict access: true

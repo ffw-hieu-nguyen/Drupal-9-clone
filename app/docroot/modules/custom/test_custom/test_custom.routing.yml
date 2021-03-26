@@ -1,0 +1,15 @@
+test_custom.settings_page:
+  path: '/custom-site-settings'
+  defaults:
+    _controller: '\Drupal\test_custom\Controller\CustomPageController::myPage'
+    _title: 'Custom site setting'
+  requirements:
+    _permission: 'access test custom'
+
+test_custom.myconfig_form:
+  path: '/admin/myconfig'
+  defaults:
+    _form: '\Drupal\test_custom\Form\MyConfig'
+    _title: 'Config'
+  requirements:
+    _permission: 'access test custom config'

@@ -1,0 +1,5 @@
+name: 'Test Custom Setting'
+type: module
+description: 'Test custom setting'
+core_version_requirement: ^8 || ^9
+package: 'Custom'
