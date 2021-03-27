@@ -1,0 +1,20 @@
+uuid: 13d8efe9-7bd4-4f85-aa37-0995b87a2452
+langcode: en
+status: true
+dependencies:
+  module:
+    - random_quote
+  theme:
+    - bartik
+id: random_quote
+theme: bartik
+region: content
+weight: 0
+provider: null
+plugin: random_quote_block
+settings:
+  id: random_quote_block
+  label: 'Random Quote'
+  provider: random_quote
+  label_display: visible
+visibility: {  }

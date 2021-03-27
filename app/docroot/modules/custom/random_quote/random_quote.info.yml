@@ -1,0 +1,5 @@
+name: 'Random Quote'
+type: module
+description: 'Random Quote user API'
+core_version_requirement: ^8 || ^9
+package: 'Custom'

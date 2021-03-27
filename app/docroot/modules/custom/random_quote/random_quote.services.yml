@@ -1,0 +1,4 @@
+services:
+  random_quote.random:
+    class: Drupal\random_quote\RandomQuoteService
+    arguments: [ '@http_client' ]

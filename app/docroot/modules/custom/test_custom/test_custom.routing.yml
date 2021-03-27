@@ -26,6 +26,6 @@ test_custom.form_handle:
   path: '/publish_control/handle_form'
   defaults:
     _form: '\Drupal\test_custom\Form\HandleForm'
-    _title: 'form'
+    _title: 'Control publishing option'
   requirements:
     _permission: 'access test custom'

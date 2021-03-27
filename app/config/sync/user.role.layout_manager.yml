@@ -9,5 +9,6 @@ label: 'Layout manager'
 weight: 2
 is_admin: false
 permissions:
+  - 'accesst test custom'
   - 'administer node display'
   - 'configure any layout'

@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * @file
+ * Contains cms_search.module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function random_quote_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the cms_search module.
+    case 'help.page.random_quote':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Random quote') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
