@@ -1,0 +1,5 @@
+services:
+  node_statistics.node.redis:
+    class: Drupal\node_statistics\StatisticsNodeStorageService
+    arguments: ['@redis.factory', '@database', '@request_stack', '@datetime.time']
+

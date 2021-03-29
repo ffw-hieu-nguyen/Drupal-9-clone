@@ -24,3 +24,34 @@ function random_quote_help($route_name, RouteMatchInterface $route_match) {
   }
 }
 
+function random_quote_node_view (array &$build, \Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display, $view_mode) {
+  if($view_mode == 'full'){
+    $node = \Drupal::routeMatch()->getParameter('node');
+    $user = \Drupal::currentUser()->getAccountName();
+    if ($node instanceof \Drupal\node\NodeInterface) {
+      // You can get nid and anything else you need from the node object.
+      $nid = $node->id();
+      if(!empty($nid)){
+        $statistics_node = _get_view_article_by_nid($nid);
+        $build['statistics_node']= [
+          '#markup' => t('<div> Number of view : @today today / @total total </div>',['@today' => isset($statistics_node[0]->daycount) ? $statistics_node[0]->daycount: 0, '@total' => isset($statistics_node[0]->totalcount) ? $statistics_node[0]->totalcount: 0]),
+          '#weight' => 10,
+        ];
+        $build['statistics_node_last_view']= [
+          '#markup' => t('<div> Last viewed by : @people at @time </div>',['@people' => isset($user) ? $user: 'Anonymous', '@time' => isset($statistics_node[0]->timestamp) ? date('Y-m-d H:i',$statistics_node[0]->timestamp) : date('Y-m-d H:i',time())]),
+          '#weight' => 15,
+        ];
+      }
+    }
+  }
+}
+
+/**
+ * Get number view article by nid.
+ * @param array $timestamp
+ * @param int $nid
+ */
+function _get_view_article_by_nid($nid) {
+  $query = \Drupal::database()->query("SELECT * FROM node_counter WHERE nid ='$nid'");
+  return $query->fetchAll();
+}

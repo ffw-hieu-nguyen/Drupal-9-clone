@@ -1,0 +1,76 @@
+<?php
+
+/**
+ * @file
+ * Contains node_statistics.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function node_statistics_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the cms_statistics module.
+    case 'help.page.node_statistics':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Node statistics') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+
+
+/**
+ * Implements hook_cron().
+ */
+function node_statistics_cron() {
+  // Sync node statistic from redis to database.
+  $node_storage = \Drupal::service('node_statistics.node.redis');
+  $keys = $node_storage->getCurrentKeys();
+  $counter = $node_storage->fetchViews($keys);
+  if (!empty($counter)) {
+    $node_storage->syncDatabase($counter);
+    $node_storage->deleteRecords($keys);
+  }
+}
+
+function node_statistics_create_node_history() {
+  $spec = [
+    'description' => 'Node counter history',
+    'fields' => [
+      'nid' => [
+        'description' => 'Node ID',
+        'type' => 'int',
+        'not null' => true,
+        'unsigned' => true
+      ],
+      'uid' => [
+        'description' => 'User ID',
+        'type' => 'int',
+        'not null' => true,
+        'unsigned' => true
+      ],
+      'timestamp' => [
+        'description' => 'timestamp',
+        'type' => 'int',
+        'not null' => true,
+        'unsigned' => true
+      ],
+      'count' => [
+        'description' => 'View of day',
+        'type' => 'int',
+        'not null' => true,
+        'unsigned' => true
+      ],
+    ],
+    'primary key' => ['nid','uid' ,'timestamp']
+  ];
+  $schema = \Drupal\Core\Database\Database::getConnection()->schema();
+  $schema->createTable('node_history', $spec);
+}
+

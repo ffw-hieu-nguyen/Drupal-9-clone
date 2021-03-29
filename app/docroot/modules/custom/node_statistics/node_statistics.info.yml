@@ -1,0 +1,7 @@
+name: 'Node statistics'
+type: module
+description: 'Node statistics'
+core_version_requirement: ^8 || ^9
+package: 'Custom'
+dependencies:
+  - drupal:redis
