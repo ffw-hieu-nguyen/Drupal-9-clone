@@ -7,7 +7,7 @@ test_custom.settings_page:
     _permission: 'access test custom'
 
 test_custom.myconfig_form:
-  path: '/admin/myconfig'
+  path: '/myconfig'
   defaults:
     _form: '\Drupal\test_custom\Form\MyConfig'
     _title: 'Config'
@@ -15,7 +15,7 @@ test_custom.myconfig_form:
     _permission: 'access test custom config'
 
 test_custom.handle_article:
-  path: '/publish_control'
+  path: '/control'
   defaults:
     _controller: '\Drupal\test_custom\Controller\RedirectController::redirectForm'
     _title: 'redirect form'
@@ -23,7 +23,7 @@ test_custom.handle_article:
     _permission: 'access test custom'
 
 test_custom.form_handle:
-  path: '/publish_control/handle_form'
+  path: '/publish_control'
   defaults:
     _form: '\Drupal\test_custom\Form\HandleForm'
     _title: 'Control publishing option'

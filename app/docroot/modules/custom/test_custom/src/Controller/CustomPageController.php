@@ -15,9 +15,13 @@ class CustomPageController extends ControllerBase {
    *   A simple renderable array.
    */
   public function myPage() {
-    return [
-      '#markup' => 'Hello, page custom test',
+    $render = [];
+    $render['element1'] = [
+      '#type' => 'markup',
+      '#markup' => t('Hello, page custom test'),
     ];
+    $render['element2'] = \Drupal::formBuilder()->getForm('Drupal\test_custom\Form\MyConfig');
+    return $render;
   }
 
 }
